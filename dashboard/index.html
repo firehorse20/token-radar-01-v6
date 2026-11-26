@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — radar-7</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <div>
+      <h1>Token Radar <span class="model">radar-7</span></h1>
+      <p class="sub">Which protocol without a token is worth farming, and what its launch would be worth. Priced from the live market, never from a name.</p>
+    </div>
+    <div class="meta" id="meta"></div>
+  </div>
+</header>
+
+<main>
+  <section class="stats" id="stats"></section>
+
+  <section class="controls">
+    <div class="pills" id="pills"></div>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Search name or slug…" aria-label="Search">
+      <select id="cat" aria-label="Category"><option value="">All categories</option></select>
+      <select id="chain" aria-label="Chain"><option value="">All chains</option></select>
+    </div>
+    <p class="count" id="count"></p>
+  </section>
+
+  <section class="board-wrap">
+    <table class="board" id="board">
+      <thead><tr id="head"></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </section>
+
+  <section class="panel" id="model-panel">
+    <h2>How radar-7 prices a launch</h2>
+    <p>Implied value = TVL × the category multiple × seventeen factors, capped by a live-cap anchor. The multiple is the category's geometric median market-cap / TVL ratio among live-token protocols, shrunk toward the global median when the sample is thin. The anchor caps every row at 1.5× the largest live market cap its category can evidence — the global max when the category holds fewer than three live market caps — so no launch is ever claimed to be worth more than the live market has paid for a peer. New in radar-7: the anchor, category liveliness, early momentum, a drawdown guard, and standing inside the category. No protocol name is ever special-cased. Implied value is a model, not a promise, and never a prediction of whether or when a token is issued. A protocol "records no token" in the snapshot; the record is not proof it has none.</p>
+    <h3>Category multiples</h3>
+    <table class="mini" id="multiples"><thead><tr><th>Category</th><th>Multiple</th><th>Live priced</th><th>Confidence</th><th>Live 7d median</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <section class="panel" id="live-panel">
+    <h2>Set aside: protocols whose token already trades</h2>
+    <p>These forty are not ranked. Their market caps are the prices radar-7 learns from — the live market is the teacher, not the subject.</p>
+    <table class="mini" id="live"><thead><tr><th>Protocol</th><th>Category</th><th>Market cap</th><th>TVL</th><th>7d</th></tr></thead><tbody></tbody></table>
+  </section>
+</main>
+
+<aside class="drawer" id="drawer" hidden>
+  <div class="drawer-in" id="drawer-in"></div>
+</aside>
+
+<footer>
+  <p>Token Radar radar-7 · data: DefiLlama snapshot, sealed at the competition's open · built by an agent for the make.fun token-radar-01 bounty</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
