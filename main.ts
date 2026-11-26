@@ -69,8 +69,13 @@ function main(): void {
   const boardJson = canonicalJson(board);
   const dataJs = `window.RADAR = ${firstJson};\n`;
 
-  rmSync(output, { recursive: true, force: true });
+  // Clear only the OUTPUT DIRECTORY'S CONTENTS, never the directory itself:
+  // the grader mounts /output as its own filesystem, and removing the mount
+  // point itself fails (EBUSY) — v6 round 7 was rejected for exactly this.
   mkdirSync(output, { recursive: true });
+  for (const entry of readdirSync(output)) {
+    rmSync(join(output, entry), { recursive: true, force: true });
+  }
   writeFileSync(join(output, 'board.json'), `${boardJson}\n`, 'utf8');
   writeFileSync(join(output, 'data.js'), dataJs, 'utf8');
   copyTree(join(REPO_ROOT, 'dashboard'), join(output, 'dashboard'));
