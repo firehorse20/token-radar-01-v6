@@ -4,8 +4,7 @@
 
 # Token Radar v6
 
-A token launch radar for make.fun's "Build the best token launch radar" bounty
-(https://make.fun/bounty/token-radar-01). It reads a sealed DefiLlama snapshot of
+A token launch radar for make.fun's ["Build the best token launch radar" bounty](https://make.fun/bounty/token-radar-01). It reads a sealed DefiLlama snapshot of
 758 protocols, ranks the pre-token ones by an implied launch value, and shows a
 reader how to farm each one. This is v6 of the entry: a new value model (radar-7),
 a wider board, nine-step farm plans, and a rebuilt dark dashboard with a
